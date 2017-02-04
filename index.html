@@ -1,101 +1,199 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>ipaddr.ca - What is My IP Address?</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <style>
-            body {
-                padding-top: 50px;
-                padding-bottom: 20px;
-            }
-        </style>
-
-        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container">
-        <div class="row">
-            <div class="col-xs-8 col-sm-8">
-                <h1>ipaddr.ca</h1>
-                <p>This website will tell you your IP[v4|v6] addresses.</p>
-                <h3>Your IPv6 address is:</h3>
-                <p id="ipv6">None</p>
-                <h3>Your IPv4 address is:</h3>
-                <p id="ipv4">None</p>
-                <h3>Your IPv6 PTR is:</h3>
-                <p id="ipv6ptr">None</p>
-                <h3>Your IPv4 PTR is:</h3>
-                <p id="ipv4ptr">None</p>
-                <hr>
-                <p>This website can also be shell scripted using curl:<br><code>IP6=`curl -s 6.ipaddr.ca/ip`</code> or 
-                <br><code>IP4=`curl -s 4.ipaddr.ca/ip`</code> or 
-                <br><code>PTR6=`curl -s 6.ipaddr.ca/ptr`</code> or 
-                <br><code>PTR4=`curl -s 4.ipaddr.ca/ptr`</code></p>
-            </div>
-            <div class="col-xs-4 col-sm-4">
-                <img class="img-responsive" src="assets/img/bird.png" alt="A Funny Bird"/>
-            </div>
-        </div>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ipaddr.ca - What is My IP Address?</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<style type="text/css">
+body{
+	position: relative; /* required */
+    padding-top: 70px;	/* prevent content to go underneath the fixed navbar */
+}
+</style>
+</head>
+<body data-spy="scroll" data-target="#myNavbar" data-offset="100">
+  <nav id="myNavbar" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse"> 
+          <span class="sr-only">Toggle navigation</span> 
+          <span class="icon-bar"></span> 
+          <span class="icon-bar"></span> 
+          <span class="icon-bar"></span> 
+        </button>
+        <a class="navbar-brand" href="#">ipaddr.ca</a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#section1">IP Address Information</a></li>
+          <li><a href="#section2">Scripting Usage</a></li>
+          <li><a href="#section3">Advanced Scripting Usage</a></li>
+          <li><a href="#section4">Section 4</a></li>
+        </ul>
       </div>
     </div>
+  </nav>
+  <div class="container">
+    <div id="section1">
 
-    <div class="container">
-      <footer>
-        <p><a href="https://github.com/tbaschak/">&copy; Theo Baschak 2015</a></p>
-      </footer>
-    </div> <!-- /container -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+	    <div class="page-header">
+	    	<h1>ipaddr.ca <small>the one with the silly bird</small></h1> 
+	    </div>
 
-    <script src="js/vendor/bootstrap.min.js"></script>
+			<div class="row">
+				<div class="col-xs-8 col-md-7">
+		  	  <p class="lead center"><br><i>This website will tell you your IPv4 and IPv6 addresses, as well as PTR if it exists.<br>This website is usable in shell scripts too.</i></p>
+				</div>
+				<div class="col-xs-4 col-md-5">
+          <img class="img-responsive center-block" src="assets/img/bird-small.png" alt="A Funny Bird"/>
+				</div>
+			</div>
 
-    <script type="text/javascript" language="javascript">
-    $(document).ready(function() {
-      $.getJSON('http://6.ipaddr.ca/api/ip', function(ab) {
-        $('#ipv6').html('<code>' + ab.ip + '</code>');
-      });
-      $.getJSON('http://4.ipaddr.ca/api/ip', function(ac) {
-        $('#ipv4').html('<code>' + ac.ip + '</code>');
-      });
-      $.getJSON('http://6.ipaddr.ca/api/ptr', function(ad) {
-        $('#ipv6ptr').html('<code>' + ad.ptr + '</code>');
-      });
-      $.getJSON('http://4.ipaddr.ca/api/ptr', function(ae) {
-        $('#ipv4ptr').html('<code>' + ae.ptr + '</code>');
-      });
-    });
-    </script>
+			<div class="row">
+				<div class="col-xs-12 col-md-12">
+					<div class="row">
+						<div class="col-md-12">
+							<h3>Your IPv6 address is:</h3>
+							<p id="ipv6">None</p>
+							<button class="btn btn-danger" data-clipboard-action="copy" data-clipboard-target="#ipv6">Copy</button>
+						</div>
+					</div>
+					<hr>
+					<div class="row">
+						<div class="col-md-12">
+							<h3>Your IPv4 address is:</h3>
+							<p id="ipv4">None</p>
+              <button class="btn btn-primary" data-clipboard-action="copy" data-clipboard-target="#ipv4">Copy</button>
+						</div>
+					</div>
+					<hr>
+					<div class="row">
+						<div class="col-md-12">
+							<h3>Your IPv6 PTR is:</h3>
+							<p id="ipv6ptr">None</p>
+              <button class="btn btn-warning" data-clipboard-action="copy" data-clipboard-target="#ipv6ptr">Copy</button>
+						</div>
+					</div>
+					<hr>
+					<div class="row">
+						<div class="col-md-12">
+							<h3>Your IPv4 PTR is:</h3>
+							<p id="ipv4ptr">None</p>
+              <button class="btn btn-info" data-clipboard-action="copy" data-clipboard-target="#ipv4ptr">Copy</button>
+						</div>
+					</div>
+				</div>
+			</div>
 
-    <!-- Piwik -->
-    <script type="text/javascript">
-      var _paq = _paq || [];
-      _paq.push(["setDomains", ["*.ipaddr.ca","*.4.ipaddr.ca","*.6.ipaddr.ca"]]);
-      _paq.push(['trackPageView']);
-      _paq.push(['enableLinkTracking']);
-      (function() {
-        var u="//analytics.ciscodude.net/";
-        _paq.push(['setTrackerUrl', u+'piwik.php']);
-        _paq.push(['setSiteId', 2]);
-        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-      })();
-    </script>
-    <noscript><p><img src="//analytics.ciscodude.net/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
-    <!-- End Piwik Code -->
+    </div>
+    <hr>
 
-    </body>
+    <div id="section2">
+      <h2>Scripting Usage</h2>
+
+      <p>This website can also be shell scripted using curl and httpie</p>
+
+      <h3>Get IPv4 Address in Bash</h3>
+      <p><code>IP4=`curl -s 4.ipaddr.ca/ip`</code></p>
+
+      <h3>Get IPv6 Address in Bash</h3>
+      <p><code>IP6=`curl -s 6.ipaddr.ca/ip`</code></p>
+
+      <h3>Get IPv4 PTR Address in Bash</h3>
+      <p><code>PTR4=`curl -s 4.ipaddr.ca/ptr`</code></p>
+
+      <h3>Get IPv6 PTR Address in Bash</h3>
+      <p><code>PTR6=`curl -s 6.ipaddr.ca/ptr`</code></p>
+
+      <h3>Single Stacked Hosts</h3>
+      <p>Single stacked hosts which don't have IPv6 access can simply request the following:</p>
+      <p><code>IP=`curl -s ipaddr.ca/ip`</code> or
+      <br><code>PTR=`curl -s ipaddr.ca/ptr`</code></p>
+    </div>
+    <hr>
+    <div id="section3">
+      <h2>Advanced Scripting Usage</h2>
+      <p>This website can also be shell scripted using curl:<br><code>IP6=`curl -s 6.ipaddr.ca/ip`</code> or 
+      <br><code>IP4=`curl -s 4.ipaddr.ca/ip`</code> or 
+      <br><code>PTR6=`curl -s 6.ipaddr.ca/ptr`</code> or 
+      <br><code>PTR4=`curl -s 4.ipaddr.ca/ptr`</code></p>
+
+      <p>Phasellus vitae suscipit justo. Mauris pharetra feugiat ante id lacinia. Etiam faucibus mauris id tempor egestas. Duis luctus turpis at accumsan tincidunt. Phasellus risus risus, volutpat vel tellus ac, tincidunt fringilla massa. Etiam hendrerit dolor eget ante rutrum adipiscing. Cras interdum ipsum mattis, tempus mauris vel, semper ipsum. Duis sed dolor ut enim lobortis pellentesque ultricies ac ligula. Pellentesque convallis elit nisi, id vulputate ipsum ullamcorper ut. Cras ac pulvinar purus, ac viverra est. Suspendisse potenti. Integer pellentesque neque et elementum tempus. Curabitur bibendum in ligula ut rhoncus.</p>
+      <p>Disque pharetra velit id velit iaculis pretium. Nullam a justo sed ligula porta semper eu quis enim. Pellentesque pellentesque, metus at facilisis hendrerit, lectus velit facilisis leo, quis volutpat turpis arcu quis enim. Nulla viverra lorem elementum interdum ultricies. Suspendisse accumsan quam nec ante mollis tempus. Morbi vel accumsan diam, eget convallis tellus. Suspendisse potenti.</p>
+    </div>
+    <hr>
+    <div id="section4">
+      <h2>Section 4</h2>
+      <p>Meget purus nec est consectetur vehicula. Nullam ultrices nisl risus, in viverra libero egestas sit amet. Etiam porttitor dolor non eros pulvinar malesuada. Vestibulum sit amet est mollis nulla tempus aliquet. Praesent luctus hendrerit arcu non laoreet. Morbi consequat placerat magna, ac ornare odio sagittis sed. Donec vitae ullamcorper purus. Vivamus non metus ac justo porta volutpat. Malesuada. Vestibulum sit amet est mollis nulla tempus aliquet. Praesent luctus hendrerit arcu non laoreet. Morbi consequat placerat magna, ac ornare odio sagittis sed. Donec vitae ullamcorper purus. Vivamus non metus ac justo porta volutpat. Integer a quam nunc. In hac habitasse platea dictumst. Aliquam porta nibh nulla, et mattis turpis placerat eget. Pellentesque dui diam, pellentesque vel gravida id, accumsan eu magna. Sed a semper arcu, ut dignissim leo.</p>
+      <p>Vamus mattis accumsan erat, vel convallis risus pretium nec. Integer nunc nulla, viverra ut sem non, scelerisque vehicula arcu. Fusce bibendum convallis augue sit amet lobortis. Cras porta urna turpis, sodales lobortis purus adipiscing id. Maecenas ullamcorper, turpis suscipit pellentesque fringilla, massa lacus pulvinar mi, nec dignissim velit arcu eget purus. Nam at dapibus tellus, eget euismod nisl. Ut eget venenatis sapien. Vivamus vulputate varius mauris, vel varius nisl facilisis ac. Nulla aliquet justo a nibh ornare, eu congue neque rutrum. Pellentesque pulvinar ultrices nunc sed ultrices. Morbi vel mi pretium, fermentum lacus et, viverra tellus. Phasellus sodales libero nec dui convallis, sit amet fermentum sapien auctor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed eu elementum nibh, quis varius libero.</p>
+      <p>Suspendisse a orci facilisis, dignissim tortor vitae, ultrices mi. Vestibulum a iaculis lacus. Phasellus vitae convallis ligula, nec volutpat tellus. Vivamus scelerisque mollis nisl, nec vehicula elit egestas a. Sed luctus metus id mi gravida, faucibus convallis neque pretium. Maecenas quis sapien ut leo fringilla tempor vitae sit amet leo. Donec imperdiet tempus placerat. Pellentesque pulvinar ultrices nunc sed ultrices. Morbi vel mi pretium, fermentum lacus et, viverra tellus. Phasellus sodales libero nec dui convallis, sit amet fermentum sapien auctor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed eu elementum nibh, quis varius libero.</p>
+      <p>Orbised fermentum ipsum. Morbi a orci vulputate tortor ornare blandit a quis orci. Donec aliquam sodales gravida. In ut ullamcorper nisi, ac pretium velit. Vestibulum vitae lectus volutpat, consequat lorem sit amet, pulvinar tellus. In tincidunt vel leo eget pulvinar. Curabitur a eros non lacus malesuada aliquam. Praesent et tempus odio. Integer a quam nunc. In hac habitasse platea dictumst. Aliquam porta nibh nulla, et mattis turpis placerat eget. Pellentesque dui diam, pellentesque vel gravida id, accumsan eu magna. Sed a semper arcu, ut dignissim leo.</p>
+      <p>Aliquam consequat ipsum quis est dictum ultrices. Aenean nibh velit, fringilla in diam id, blandit hendrerit lacus. Donec vehicula rutrum tellus eget fermentum. Pellentesque ac erat et arcu ornare tincidunt. Vitae lobortis diam, id molestie magna. Aliquam consequat ipsum quis est dictum ultrices. Aenean nibh velit, fringilla in diam id, blandit hendrerit lacus. Donec vehicula rutrum tellus eget fermentum. Pellentesque ac erat et arcu ornare tincidunt. Aliquam erat volutpat. Vivamus lobortis urna quis gravida semper. In condimentum, est a faucibus luctus, mi dolor cursus mi, id vehicula arcu risus a nibh. Pellentesque blandit sapien lacus, vel vehicula nunc feugiat sit amet.</p>
+      <p>Etiam porttitor dolor non eros pulvinar malesuada. Vestibulum sit amet est mollis nulla tempus aliquet. Praesent luctus hendrerit arcu non laoreet. Morbi consequat placerat magna, ac ornare odio sagittis sed. Donec vitae ullamcorper purus. Vivamus non metus ac justo porta volutpat. Meget purus nec est consectetur vehicula. Nullam ultrices nisl risus, in viverra libero egestas sit amet. Etiam porttitor dolor non eros pulvinar malesuada. Vestibulum sit amet est mollis nulla tempus aliquet. Praesent luctus hendrerit arcu non laoreet. Morbi consequat placerat magna, ac ornare odio sagittis sed. Donec vitae ullamcorper purus. Vivamus non metus ac justo porta volutpat.</p>
+      <p>Maecenas ullamcorper, turpis suscipit pellentesque fringilla, massa lacus pulvinar mi, nec dignissim velit arcu eget purus. Nam at dapibus tellus, eget euismod nisl. Ut eget venenatis sapien. Vivamus vulputate varius mauris, vel varius nisl facilisis ac. Nulla aliquet justo a nibh ornare, eu congue neque rutrum. Vamus mattis accumsan erat, vel convallis risus pretium nec. Integer nunc nulla, viverra ut sem non, scelerisque vehicula arcu. Fusce bibendum convallis augue sit amet lobortis. Cras porta urna turpis, sodales lobortis purus adipiscing id. Maecenas ullamcorper, turpis suscipit pellentesque fringilla, massa lacus pulvinar mi, nec dignissim velit arcu eget purus. Nam at dapibus tellus, eget euismod nisl. Ut eget venenatis sapien. Vivamus vulputate varius mauris, vel varius nisl facilisis ac. Nulla aliquet justo a nibh ornare, eu congue neque rutrum.</p>
+      <p>Suspendisse a orci facilisis, dignissim tortor vitae, ultrices mi. Vestibulum a iaculis lacus. Phasellus vitae convallis ligula, nec volutpat tellus. Vivamus scelerisque mollis nisl, nec vehicula elit egestas a. Sed luctus metus id mi gravida, faucibus convallis neque pretium. Maecenas quis sapien ut leo fringilla tempor vitae sit amet leo. Donec imperdiet tempus placerat. Pellentesque pulvinar ultrices nunc sed ultrices. Morbi vel mi pretium, fermentum lacus et, viverra tellus. Phasellus sodales libero nec dui convallis, sit amet fermentum sapien auctor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed eu elementum nibh, quis varius libero.</p>
+      <p>Fermentum ipsum. Morbi a orci vulputate tortor ornare blandit a quis orci. Donec aliquam sodales gravida. In ut ullamcorper nisi, ac pretium velit. Vestibulum vitae lectus volutpat, consequat lorem sit amet, pulvinar tellus. In tincidunt vel leo eget pulvinar. Curabitur a eros non lacus malesuada aliquam. Praesent et tempus odio. Integer a quam nunc. In hac habitasse platea dictumst. Aliquam porta nibh nulla, et mattis turpis placerat eget. Pellentesque dui diam, pellentesque vel gravida id, accumsan eu magna.</p>
+    </div>
+  </div>
+</div>
+
+<br><br><br><br><br>
+<hr>
+<br><br><br><br><br><br><br>
+
+<div class="container">
+  <footer>
+    <p><a href="https://theodorebaschak.com/">&copy; Theo Baschak 2017</a></p>
+  </footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.16/clipboard.min.js"></script>
+
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+<script src="js/vendor/bootstrap.min.js"></script>
+<script type="text/javascript" language="javascript">
+$(document).ready(function() {
+  $.getJSON('http://6.ipaddr.ca/api/ip', function(ab) {
+    $('#ipv6').html('<code>' + ab.ip + '</code>');
+  });
+  $.getJSON('http://4.ipaddr.ca/api/ip', function(ac) {
+    $('#ipv4').html('<code>' + ac.ip + '</code>');
+  });
+  $.getJSON('http://6.ipaddr.ca/api/ptr', function(ad) {
+    $('#ipv6ptr').html('<code>' + ad.ptr + '</code>');
+  });
+  $.getJSON('http://4.ipaddr.ca/api/ptr', function(ae) {
+    $('#ipv4ptr').html('<code>' + ae.ptr + '</code>');
+  });
+});
+function CopyToClipboard(containerid) {
+	if (document.selection) { 
+		var range = document.body.createTextRange();
+		range.moveToElementText(document.getElementById(containerid));
+		range.select().createTextRange();
+		document.execCommand("Copy"); 
+	} else if (window.getSelection) {
+    var range = document.createRange();
+     range.selectNode(document.getElementById(containerid));
+     window.getSelection().addRange(range);
+     document.execCommand("Copy");
+     alert("text copied") 
+	}
+}
+
+var clipboard = new Clipboard('.btn');
+</script>
+
+<br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
+
+</body>
 </html>
